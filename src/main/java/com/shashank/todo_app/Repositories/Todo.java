@@ -9,14 +9,14 @@ public class Todo {
     private int id;
     private String username;
     private String description;
-    private LocalDate localDate;
+    private LocalDate targetDate;
     private boolean done;
 
-    public Todo(int id, String username, String description, LocalDate localDate, boolean done) {
+    public Todo(int id, String username, String description, LocalDate targetDate, boolean done) {
         this.id = id;
         this.username = username;
         this.description = description;
-        this.localDate = localDate;
+        this.targetDate = targetDate;
         this.done = done;
     }
 
@@ -26,7 +26,7 @@ public class Todo {
                 "description='" + description + '\'' +
                 ", id=" + id +
                 ", username='" + username + '\'' +
-                ", localDate=" + localDate +
+                ", localDate=" + targetDate +
                 ", done=" + done +
                 '}';
     }
@@ -43,8 +43,8 @@ public class Todo {
         return description;
     }
 
-    public LocalDate getLocalDate() {
-        return localDate;
+    public LocalDate getTargetDate() {
+        return targetDate;
     }
 
     public boolean isDone() {

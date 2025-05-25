@@ -36,7 +36,7 @@ public class TodoController {
     @RequestMapping( value = "/add-todos" , method = RequestMethod.POST)
     public String goToTodosPage(ModelMap modelMap , Todo todo) {
 
-        todoService.addTodo(todo.getDescription());
+        todoService.addTodo(todo.getDescription() , todo.getTargetDate());
 
         return "redirect:todos-page";
     }
@@ -47,6 +47,23 @@ public class TodoController {
         System.out.println(id);
 
         todoService.deleteTodo(id);
+
+        return "redirect:todos-page";
+    }
+
+    @RequestMapping(value = "/update-todo" , method = RequestMethod.GET)
+    public String updateTodos(ModelMap modelMap , @RequestParam int id) {
+        Todo todo = todoService.getById(id);
+        modelMap.put("todo" , todo);
+        return "add-todos";
+    }
+
+    @RequestMapping(value = "/update-todo" , method = RequestMethod.POST)
+    public String showUpdatedTodos(Todo todo) {
+
+        todoService.deleteTodo(todo.getId());
+
+        todoService.addTodo(todo.getDescription() , todo.getTargetDate());
 
         return "redirect:todos-page";
     }

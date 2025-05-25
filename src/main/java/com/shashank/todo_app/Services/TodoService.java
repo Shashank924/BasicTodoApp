@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoService {
@@ -23,12 +24,19 @@ public class TodoService {
         return todos;
     }
 
-    public void addTodo(String description) {
-        todos.add(new Todo(++counter , "Shashank" , description , LocalDate.now().plusYears(3) , false));
+    public void addTodo(String description , LocalDate targetDate) {
+        todos.add(new Todo(++counter , "Shashank" , description , targetDate , false));
     }
 
     public void deleteTodo(int id) {
 
         todos.removeIf(todo -> todo.getId() == id);
+    }
+
+    public Todo getById(int id) {
+
+        Optional<Todo> res = todos.stream().filter(todo -> todo.getId() == id).findFirst();
+
+        return res.orElse(null);
     }
 }
