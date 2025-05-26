@@ -1,18 +1,9 @@
-<html>
+<%@ include file = "common/header.jspf" %>
+<%@ include file = "common/navigation.jspf" %>
+    <div class = "container">
 
-    <head>
-        <title>Manage Todos Page</title>
-        <link href = "\webjars\bootstrap\5.3.0\css\bootstrap.min.css" rel = "stylesheet">
-    </head>
+        <h1> Welcome to the Application ${username}. </h3>
 
-    <body>
-        <div class = "container">
-
-            <h1> Welcome to the Application ${username}. </h3>
-
-            <a href = "todos-page"> Manage </a> Your Todos
-        </div>
-        <script src = "\webjars\bootstrap\5.3.0\js\bootstrap.min.js"></script>
-        <script src = "\webjars\jquery\3.6.0\jquery.min.js"></script>
-    </body>
-</html>
+        <a href = "todos-page"> Manage </a> Your Todos
+    </div>
+<%@ include file = "common/footer.jspf" %>

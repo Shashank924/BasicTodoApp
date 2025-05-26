@@ -1,6 +1,6 @@
 package com.shashank.todo_app.Controllers;
 
-import com.shashank.todo_app.Repositories.Todo;
+import com.shashank.todo_app.Models.Todo;
 import com.shashank.todo_app.Services.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
